@@ -8,6 +8,8 @@ on:
 jobs:
   check-in:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: Clone Repo
         uses: actions/checkout@v4.2.2
@@ -15,7 +17,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4.4.0
         with:
-          node-version: "20"
+          node-version: "24"
 
       - name: Check In
         run: node index.js
